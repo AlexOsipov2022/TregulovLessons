@@ -1,8 +1,7 @@
 package Streams;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Map {
     public static void main(String[] args) {
@@ -16,7 +15,8 @@ public class Map {
 //        for (int i = 0; i < list.size(); i++) {
 //            list.set(i, String.valueOf(list.get(i).length()));
 
-        List<Integer> listResult = list.stream().map(element->element.length()).toList();
+//        List<Integer> listResult = list.stream().map(element->element.length()).toList();
+        List<Integer> listResult = list.stream().map(element->element.length()).collect(Collectors.toList());;
 
         System.out.println(listResult);
 
@@ -29,5 +29,18 @@ public class Map {
             return element;
         }).toArray();
         System.out.println(Arrays.toString(array));
+
+
+        Set<String> set = new TreeSet<>();
+        set.add("privet");
+        set.add("kak");
+        set.add("dela???");
+        set.add("Poka!");
+
+        System.out.println(set);
+
+        Set<Integer> set2 = set.stream().map(e -> e.length()).collect(Collectors.toSet());
+
+        System.out.println(set2);
     }
 }
